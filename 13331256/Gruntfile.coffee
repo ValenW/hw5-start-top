@@ -38,6 +38,13 @@ module.exports = (grunt) ->
           livereload: true
           serverreload: false
 
+<<<<<<< HEAD
+    open:
+      dev:
+        url: 'http://localhost:3000/S1/index.html'
+
+=======
+>>>>>>> origin/master
     delta:
       #options:
       #  livereload: false
@@ -81,6 +88,10 @@ module.exports = (grunt) ->
     "copy"
     "livescript"
     "express"
+<<<<<<< HEAD
+    "open"
+=======
+>>>>>>> origin/master
     "delta"
   ]
 
@@ -89,5 +100,9 @@ module.exports = (grunt) ->
     "copy"
     "livescript"
     "express"
+<<<<<<< HEAD
+    "open"
+=======
+>>>>>>> origin/master
     "delta"
   ]
