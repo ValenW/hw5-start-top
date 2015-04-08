@@ -36,28 +36,58 @@ module.exports = (grunt) ->
           server: path.resolve('bin/server')
           bases: [path.resolve('bin')]
           livereload: true
+          serverreload: false
 
-    watch:
+    delta:
+      #options:
+      #  livereload: false
+
+      #livescript:
+      #  files: ["src/**/*.ls"]
+      #  tasks: ["newer:livescript"]
+
+      #sass:
+      #  files: ["src/**/*.sass"]
+      #  tasks: ["newer:sass", "concat"]
+
+      #appCode:
+      #  files: ["src/**/*.*", "!src/**/**.{ls,sass}"]
+      #  tasks: ["newer:copy:appCode"]
+
+      #express:
+      #  files: ["bin/**/*.*", "!bin/vendor/**/*"]
+      #  tasks: []
+      #  options:
+      #    livereload: true
+
+      #grunt:
+      #  files: ['Gruntfile.coffee']
       options:
         liverelode:
           true
       all:
-        files:    ['src/*']
+        files:    ['src/**/*.*']
         tasks:    ['newer:copy', 'newer:livescript']
-      #express:
-      #  files: ["bin/**/*.*", "!bin/server.js"]
-      #  tasks: ['express']
-      #  options:
-      #    livereload: 3001
+      express:
+        files: ["bin/**/*.*", "!bin/server.js"]
+        tasks: []
+        options:
+          livereload: 3001
+
+  grunt.renameTask "watch", "delta"
 
   grunt.registerTask "default", [
     "clean"
     "copy"
     "livescript"
-    #"express"
-    "watch"
+    "express"
+    "delta"
   ]
 
   grunt.registerTask "watch", [
-    "watch"
+    "clean"
+    "copy"
+    "livescript"
+    "express"
+    "delta"
   ]

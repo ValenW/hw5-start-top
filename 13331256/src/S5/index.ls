@@ -27,7 +27,7 @@ class Button
       @get-number-and-show then-to-do
 
   get-number-and-show: (then-to-do)->
-    @ajax =  $.get "../#@name", (number, status) !~>
+    @ajax =  $.get "../#{@name}", (number, status) !~>
       @change-state 'done'
       @red-pot .text number
       @@@change-all-other-buttons-to 'enable', @
